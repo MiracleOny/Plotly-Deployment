@@ -61,37 +61,44 @@ function buildCharts(sample) {
     console.log(data);
 
     // Deliverable 1: 3. Create a variable that holds the samples array. 
-
+    var samples = data.samples;
     // Deliverable 1: 4. Create a variable that filters the samples for the object with the desired sample number.
-
+    var filteredSample = samples.filter(sampleObj => sampleObj.id == sample);
     // Deliverable 3: 1. Create a variable that filters the metadata array for the object with the desired sample number.
-
+    var metadata = data.metadata;
+    var filteredMetadata = metadata.filter(metadataObj => metadataObj.id == sample);
     // Deliverable 1: 5. Create a variable that holds the first sample in the array.
-
+    var result = filteredSample[0];
     // Deliverable 3: 2. Create a variable that holds the first sample in the metadata array.
-
+    var metaResult = filteredMetadata[0];
     // Deliverable 1: 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
-
+    var otuIds = result.otu_ids;
+    var otuLabels = result.otu_labels;
+    var sampValues = result.sample_values;
     // Deliverable 3: 3. Create a variable that holds the washing frequency.
-
+    var wfreq = metaResult.wfreq;
 
     // Deliverable 1: 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order 
     // so the otu_ids with the most bacteria are last. 
-    var yticks = 
+    var yticks = otuIds.slice(0, 10).map(id => "OTU " + id).reverse();
 
     // Deliverable 1: 8. Create the trace for the bar chart. 
-    var barData = [
-
-    ];
+    var trace = {
+      x: sampValues.slice(0, 10).reverse(),
+      y: [yticks],
+      type: "bar",
+      orientation: "h"
+    }
+    var barData = [trace];
 
     // Deliverable 1: 9. Create the layout for the bar chart. 
     var barLayout = {
-
+      title: "Top 10 Bacterial Cultures Found"
     };
 
     // Deliverable 1: 10. Use Plotly to plot the data with the layout. 
-
+    Plotly.newplot("bar", barData, barLayout)
     // Deliverable 2: 1. Create the trace for the bubble chart.
 
     // Deliverable 2: 2. Create the layout for the bubble chart.
