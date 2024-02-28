@@ -17,14 +17,14 @@
 }
 
 /* ADDING BACKGROUND COLOR */
-body {
+.background-color {
   background-color: #dfebed;
 }
-#bar {
+.bar {
   background-color: #407088;
   padding: 15px;
 }
-#gauge {
+.gauge {
   background-color: rgb(5, 50, 32);
   padding-top: 15px;
   padding-bottom: 15px; 
@@ -51,7 +51,7 @@ body {
   }
 }
 </style>
-<body>
+<body class="background-color">
 
   <div class="container">
     <div class="row">
@@ -73,10 +73,10 @@ body {
           <div id="sample-metadata" class="panel-body"></div>
         </div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5 bar">
         <div id="bar"></div>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5 gauge">
         <div id="gauge"></div>
       </div>
     </div>
