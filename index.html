@@ -11,7 +11,7 @@
 <style>
   * ADDING IMAGE TO JUMBOTRON */
 .jumbotron {
-  background-image: url("images/bacteria.jpg");
+  background-image: url(images/bacteria.jpg);
   background-size: 100%;
   text-align: center;
 }
@@ -36,7 +36,24 @@
 }
 
 /* RESPONSIVE WEB  */
-/* Media query for screens smaller than 768px */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#bar,
+#bubble,
+#gauge {
+  width: 100%;
+}
+  
+  /* Media query for screens smaller than 768px */
 @media only screen and (max-width: 768px) {
   .container {
     width: 90%;
